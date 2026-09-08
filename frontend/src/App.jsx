@@ -19,8 +19,7 @@ const [editId, setEditId] = useState(null);
 const [search, setSearch] = useState("");
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/products")
+    axios.get("https://inventory-management-rho-0chre.vercel.app/api/products")
       .then((response) => {
         setProducts(response.data);
       })
@@ -51,12 +50,12 @@ const addProduct = async () => {
   try {
 
     await axios.post(
-      "http://localhost:5000/api/products",
+      "https://inventory-management-rho-0chre.vercel.app/api/products",
       formData
     );
 
     const response = await axios.get(
-      "http://localhost:5000/api/products"
+      "https://inventory-management-rho-0chre.vercel.app/api/products"
     );
 
     setProducts(response.data);
@@ -83,12 +82,12 @@ const deleteProduct = async (id) => {
 if (!ok) return;
 
 await axios.delete(
-  `http://localhost:5000/api/products/${id}`
+  `https://inventory-management-rho-0chre.vercel.app/api/products/${id}`
 );
     
 
     const response = await axios.get(
-      "http://localhost:5000/api/products"
+      "https://inventory-management-rho-0chre.vercel.app/api/products"
     );
 
     setProducts(response.data);
@@ -116,17 +115,17 @@ const updateProduct = async () => {
   console.log("Update Button Clicked");
 
   console.log(editId);
-console.log(`http://localhost:5000/api/products/${editId}`);
+console.log(`https://inventory-management-rho-0chre.vercel.app/api/products/${editId}`);
 
   try {
 
     await axios.put(
-      `http://localhost:5000/api/products/${editId}`,
+      `https://inventory-management-rho-0chre.vercel.app/api/products/${editId}`,
       formData
     );
 
     const response = await axios.get(
-      "http://localhost:5000/api/products"
+      "https://inventory-management-rho-0chre.vercel.app/api/products"
     );
 
     setProducts(response.data);
